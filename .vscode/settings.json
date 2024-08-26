@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:wiwino-project}/vivino.db",
+            "name": "vivino"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
