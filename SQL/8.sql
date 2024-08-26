@@ -1,5 +1,5 @@
 
---Question: What is the distribution of wines across different taste profiles (e.g., sweetness, acidity, tannin), and how do these profiles correlate with ratings?
+--Question 8: What is the distribution of wines across different taste profiles (e.g., sweetness, acidity, tannin), and how do these profiles correlate with ratings?
 
 
 SELECT 
@@ -22,14 +22,3 @@ GROUP BY keywords.name
 ORDER BY avg_ratings_average DESC;
 
 
-
-SELECT 
-    keywords.name AS wines_taste,
-    AVG(wines.ratings_average) AS avg_ratings_average
-
-FROM wines
-INNER JOIN keywords_wine ON wines.id = keywords_wine.wine_id
-INNER JOIN keywords ON keywords.id = keywords_wine.keyword_id
-WHERE wines.ratings_average IS NOT NULL
-GROUP BY keywords.name
-ORDER BY avg_ratings_average DESC;
