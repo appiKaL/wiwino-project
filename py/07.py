@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-db_path = './db/vivino.db'
+db_path = r'c:\Users\mehme\becode---\BECODE___PROJECTS\02.WIWINO_sql\wiwino\db\vivino.db'
 
 query = '''
 SELECT *
