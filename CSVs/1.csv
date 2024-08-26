@@ -1,11 +1,11 @@
-name,ratings_average,ratings_count
-Unico,4.7,45140
-Sauternes,4.7,44126
-Special Selection Cabernet Sauvignon,4.7,41236
-Pomerol,4.7,32157
-Grange,4.7,24356
-Cabernet Sauvignon,4.6,157944
-Brut Champagne,4.6,146377
-Sassicaia,4.6,107646
-Opus One,4.6,77053
-Pauillac (Premier Grand Cru Class�),4.6,73615
+wine_name,ratings_average,ratings_count,rating_per_price,price_euros
+Brunello di Montalcino Riserva,4.9,35,0.25,1970.05
+L'Extravagant de Doisy-Daëne Sauternes,4.9,32,1.23,397.5
+Pomerol,4.8,1190,0.08,6300.0
+Le Mesnil Blanc de Blancs (Cuvée S) Brut Champagne,4.8,1004,0.17,2882.5
+Pauillac (Premier Grand Cru Classé),4.8,1000,0.25,1900.0
+Grand Vin Pauillac (Premier Grand Cru Classé),4.8,920,0.28,1686.25
+Toscana,4.8,797,0.1,4910.0
+Sauternes,4.8,763,0.59,811.25
+Toscana,4.8,762,0.1,4697.5
+Toscana,4.8,651,0.09,5231.25
