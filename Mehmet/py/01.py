@@ -1,54 +1,33 @@
-# 1. We want to highlight 10 wines to increase our sales. Which ones should we choose and why?
-
-
 import sqlite3
 import pandas as pd
 
-db_path = r'c:\Users\mehme\becode---\BECODE___PROJECTS\02.WIWINO_sql\wiwino\db\vivino.db'
+db_path = r'C:\Users\mehme\becode---\BECODE___PROJECTS\02.WIWINO_sql\wiwino-project\db\vivino.db'
+
+query = '''
+SELECT
+    w.name as wine_name,
+	ratings_count,
+	v.price_euros as rating_per_price,	
+	ratings_average as rating
+FROM 
+    vintages 
+join wines w v on v.wine_id = w.id
+JOIN 
+    regions r ON r.id = w.region_id
+JOIN 
+    countries c ON r.country_code = c.code
+ORDER BY rating DESC
+LIMIT 10;
+'''
 
 conn = sqlite3.connect(db_path)
 
+df = pd.read_sql_query(query, conn)
 
-create_table_sql = '''
-CREATE TEMPORARY TABLE wine_performance AS
-SELECT 
-    w.id,
-    w.name as wine_name,
-    ROUND((v.ratings_average / NULLIF(v.price_euros, 0)) * 100, 2) AS rating_per_price,
-    v.ratings_average,
-    v.ratings_count,
-    v.price_euros
-from 
-    wines w
-JOIN
-    vintages v ON w.id = v.wine_id   
-WHERE
-    v.ratings_count > 0 and v.price_euros > 0;'''
-
-select_sql = '''
-SELECT 
-    wine_name,
-    ratings_average,
-    ratings_count,
-    rating_per_price,
-    price_euros
-from 
-    wine_performance
-ORDER BY
-    ratings_average DESC, ratings_count DESC, rating_per_price DESC
-LIMIT 10;  
-
-'''
-with conn:
-    conn.execute(create_table_sql)
-
-
-df = pd.read_sql_query(select_sql, conn)
 conn.close()
 
-csv_file_path = "01.csv"
+csv_file_path = '01.csv'
 
-df.to_csv(csv_file_path, index = False)
+df.to_csv(csv_file_path, index=False)
 
-
-print("Data has been successfully exported to 01.csv")
+print(f"Data has been written to {csv_file_path}")
