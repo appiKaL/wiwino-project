@@ -15,12 +15,13 @@ SELECT
     r.name as region_name,
     count(w.id) total_wine,
     AVG(ratings_average) AS rating_averages,
-    count(ratings_count) AS rating_count
+    sum(ratings_count) AS rating_count
 FROM wines w
 JOIN regions r ON w.region_id = r.id
 GROUP BY r.name
 ORDER BY total_wine DESC
 LIMIT 10;
+
 '''
 
 conn = sqlite3.connect(db_path)
